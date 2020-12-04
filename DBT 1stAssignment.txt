@@ -1,0 +1,191 @@
+Q1.Create the table Member, Books and Issue without any constraints as mentioned in the schema description above.
+
+Solution:->
+ 
+
+create database Assignment1;
+
+
+use Assignment1;
+
+
+
+create table Member(Memeber_Id int(5),Member_Name varchar(30),Member_address varchar(50),Acc_Open_Date date,Membership_type varchar(20),Paynalty_Amount int(7));
+
+
+create table Book(Book_ID int(6),Book_Name	varchar(30),Author_name varchar(30),Cost int(7),Category char(10));
+
+
+create table  Issue(Lib_Issue_Id int(10),Book_No int(6),Member_Id int(5),Issue_Date date,Return_date date);
+
+
+======================================================================================================================================
+Q2.View the structure of the tables.
+
+Solution:->
+
+desc Member;
+                                            Memeber_Id	        int	        YES	
+					    Member_Name	        varchar(30)     YES	
+					    Member_address	varchar(50)	YES	
+					    Acc_Open_Date	date	        YES	
+					    Membership_type	varchar(20)	YES
+					    Penalty_Amount	int             YES
+desc Book;
+
+                                            Book_ID	int	        YES		
+                                            Book_Name	varchar(30)	YES		
+                                            Author_name	varchar(30)	YES		
+					    Cost	int	        YES		
+					    Category	char(10)	YES
+desc Issue;
+                                            Lib_Issue_Id	int	YES
+					    Book_No	        int	YES
+					    Member_Id	        int	YES
+					    Issue_Date	        date	YES
+					    Return_date	        date	YES
+=======================================================================================================================================
+Q3.Delete/Drop the column Penalty_Amount from Member
+
+Solution:->
+Alter table Member drop column Paynalty_Amount;
+
+
+desc Member;
+
+	
+Memeber_Id	int		YES			
+Member_Name	varchar(30)	YES			
+Member_address	varchar(50)	YES			
+Acc_Open_Date	date		YES			
+Membership_type	varchar(20)	YES		
+========================================================================================================================================
+
+Q4.Insert following data in table Member:
+
+Solution:->
+
+insert into Member values(1,"Richa Sharma","Pune","10-12-05","Lifetime");
+insert into Member values(2,"Garima sen","Pune","20-12-03;","Annual");
+
+select * from Member;
+
+
+                        Memeber_Id  Member_Name  Member_address   Acc_Open_Date    Membership_type     
+			 1	   Richa Sharma	 Pune	          2010-12-05	   Lifetime
+			 2	   Garima sen	 Pune	          0003-12-20	   Annual
+=========================================================================================================================================
+Q5.Insert at least 5 records with suitable data and save it.
+
+Solution:->
+insert into Member values(3,"Nilesh Swami","Pune","20-12-03","Lifetime");
+
+insert into Member values(4,"Omkar Amin","Nagpur","20-12-04","Lifetime");
+
+insert into Member values(5,"Arijit saha","Berpeta Road","20-12-05","Lifetime");
+
+insert into Member values(6,"Nakshtra","Kalyan","20-12-01","Annual");
+
+insert into Member values(7,"Nikhil Shirkhande","Jalgaon","20-12-08","Annual");
+insert into Member values(8,"Pallavi Sakhare","Dharmabad","20-2-02","Liftime");
+
+insert into Member values(9,"Neha Chaudhari","Bhusawal","20-2-18","Liftime");
+
+insert into Member values(10,"Panaj bhasme","Kolhapur","20-12-04","Lifetime");
+
+insert into Member values(11,"Nitin ","Nashik","20-12-04","Annual");
+
+insert into Member values(12,"Nikita chaudhari ","Akola","20-2-24","Annual");
+
+insert into Member values(13,"Naman ","Bhusawal","20-10-24","Annual");
+
+select * from Member;
+
+
+
+				Memeber_Id   Member_Name       Member_address   Acc_Open_Date    Membership_type   
+				
+				1	     Richa Sharma	Pune	        2010-12-05	Lifetime
+				2	     Garima sen  	Pune	        2020-12-03	Annual
+				3	     Nilesh Swami	Pune	        2020-12-03	Lifetime
+				4	     Omkar Amin	        Nagpur	        2020-12-04	Lifetime
+				5	     Arijit saha	Berpeta Road	2020-12-05	Lifetime
+				6	     Nakshtra	        Kalyan	        2020-12-01	Annual
+				7	     Nikhil Shirkhande	Jalgaon	        2020-12-08	Annual
+				8	     Pallavi Sakhare	Dharmabad	2020-02-02	Liftime
+				9	     Neha Chaudhari	Bhusawal	2020-02-18	Liftime
+				10	     Panaj bhasme	Kolhapur	2020-12-04	Lifetime
+				11	     Nitin 	        Nashik	        2020-12-04	Annual
+				12	     Nikita chaudhari 	Akola	        2020-02-24	Annual
+				13	     Naman 	        Bhusawal	2020-10-24	Annual
+				14	     Nutan 	        nashik	        2020-01-04	Lifetime
+============================================================================================================================================
+Q6.Insert data in Book table 
+Solution:->
+
+insert into Book values(1,"Let us C","Denis Ritchie",450,"System");
+
+insert into Book values(2,"Oracle – Complete Ref","Loni",550,"Database");
+
+insert into Book values(3,"Mastering SQL","Loni",250,"Database");
+
+insert into Book values(4,"PL SQL-Ref","ScottUrman",750,"Database");
+
+
+==============================================================================================================================================
+Q7.View the data in the tables using simple SQL query.
+
+Solution:->
+select * from Book;
+
+
+ 					Book_No        Book Name    		Author     	Cost        Category
+					
+					1		Let us C   		Denis Ritchie	450	     System
+					2		Oracle – Complete Ref	Loni		550	     Database
+					3		Mastering SQL		Loni		250	     Database
+					4		PL SQL-Ref		ScottUrman	750	     Database
+==============================================================================================================================================
+Q8.Modify the price of book with id 103 to Rs 300 and category to RDBMS
+Soluton:->
+update Book set Cost=300 , Category='RDBMS' where Book_ID=103; 
+
+
+select * from Book;
+
+
+ 					Book_No        Book Name    		Author     	Cost        Category
+					
+					1		Let us C   		Denis Ritchie	450	     System
+					2		Oracle – Complete Ref	Loni		550	     Database
+					3		Mastering SQL		Loni		300	     RDBMS
+					4		PL SQL-Ref		ScottUrman	750	     Database
+===============================================================================================================================================
+Q9.Drop table Issue.
+Soluton:->
+Drop table Issue;
+===============================================================================================================================================
+Again Create table Issue and insert following data into Issue table. Note leave the column Return_Date blank
+Solution:->
+
+create table Issue(Lib_Issue_Id int,Book_No int,Member_ID int,Issue_Date date,Return_Date date null);
+
+insert into Issue values(7001,101,1,"12-10-06",0),
+(7002,102,2,"12-06-25",0),
+(7003,103,3,"12-02-15",0),
+(7004,104,4,"01-06-15",0),
+(7005,105,5,"12-11-15",0),
+
+(7006,106,6,"06-02-25",0);
+
+select * from Issue;
+
+				Lib_Issue_Id     Book_No   Member_ID   Issue_Date   Return_Date
+				
+				7001		 101	    1	        2012-10-06	0000-00-00
+				7002		 102	    2		2012-06-25	0000-00-00
+				7003		 103	    3		2012-02-15	0000-00-00
+				7004		 104	    4		2006-04-07	0000-00-00
+				7005		 105	    5		2012-11-15	0000-00-00
+				7006             106	    6           2012-02-10      0000-00-00
+ ================================================================================================================================================
